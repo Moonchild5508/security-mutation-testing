@@ -4,7 +4,7 @@ A research project applying mutation testing - a technique traditionally used to
 
 ## The Idea
 
-Passing tests don't guarantee secure code. A test suite can pass 100% of its checks while having **zero coverage for the exact scenario an attacker would exploit** — specifically, whether unauthorized requests are correctly rejected, not just whether authorized ones succeed.
+Passing tests don't guarantee secure code. A test suite can pass 100% of its checks while having **zero coverage for the exact scenario an attacker would exploit** - specifically, whether unauthorized requests are correctly rejected, not just whether authorized ones succeed.
 
 This project:
 1. Deliberately introduces small, realistic security mistakes ("mutants") into [OWASP Juice Shop](https://github.com/juice-shop/juice-shop)
@@ -43,7 +43,7 @@ The automation tool (`security-mutator.mjs`) reads `mutants.config.json` — a l
 1. Applies the mutation directly to the source file
 2. Runs the existing test suite
 3. Records pass/fail counts and whether the mutant was killed or survived
-4. Reverts the code back to original
+4. Reverts the code back to the original
 5. Moves to the next mutant
 
 At the end, it prints a summary table and category-level mutation scores, and writes full results to `mutation_results.json`.
@@ -86,7 +86,7 @@ The tool will automatically pick it up on the next run — no changes to `securi
 - **Target:** OWASP Juice Shop, commit `[FILL IN — see below]`
 - **Scope:** 7 mutants across 5 OWASP Top 10 (2021) categories
 - **Test suite:** `test/server/insecurity.unit.test.ts` (35 tests, 11 suites)
-- **Exploitability confirmation:** standalone scripts simulating an unauthorized actor for every surviving mutant
+- **Exploitability confirmation:** standalone scripts simulating an unauthorised actor for every surviving mutant
 
 Full methodology, related work, and discussion are in `research_paper.docx`.
 
@@ -97,13 +97,13 @@ Full methodology, related work, and discussion are in `research_paper.docx`.
 - Results are sensitive to the exact commit tested (see paper §6)
 - Unit-test scope only — dynamic/scanner-level evaluation (e.g., OWASP ZAP) is proposed future work
 
-See `research_paper.docx` §6 for the full discussion.
+See `research_paper.docx` for the full discussion.
 
 ## Future Work
 
 - Replicate across additional applications
 - Extend to dynamic analysis tools (OWASP ZAP)
-- Package as a CI/CD quality gate flagging authorization functions with no negative-path test
+- Package as a CI/CD quality gate flagging authorisation functions with no negative-path test
 - Compare against LLM-generated test coverage
 
 ## Author
