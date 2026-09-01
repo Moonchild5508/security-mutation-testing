@@ -1,0 +1,74 @@
+[
+  {
+    "id": "M1",
+    "file": "lib/insecurity.ts",
+    "function": "isAccounting",
+    "category": "Broken Access Control",
+    "find": "    if (decodedToken?.data?.role === roles.accounting) {",
+    "replace": "    if (decodedToken) {",
+    "pass": 35,
+    "fail": 0,
+    "killed": false,
+    "status": "SURVIVED"
+  },
+  {
+    "id": "M2",
+    "file": "lib/insecurity.ts",
+    "function": "isDeluxe",
+    "category": "Broken Access Control",
+    "find": "  return decodedToken?.data?.role === roles.deluxe && decodedToken?.data?.deluxeToken && decodedToken?.data?.deluxeToken === deluxeToken(decodedToken?.data?.email)",
+    "replace": "  return decodedToken?.data?.role === roles.deluxe",
+    "pass": 35,
+    "fail": 0,
+    "killed": false,
+    "status": "SURVIVED"
+  },
+  {
+    "id": "M3",
+    "file": "lib/insecurity.ts",
+    "function": "isCustomer",
+    "category": "Broken Access Control",
+    "find": "  return decodedToken?.data?.role === roles.customer",
+    "replace": "  return true",
+    "pass": 35,
+    "fail": 0,
+    "killed": false,
+    "status": "SURVIVED"
+  },
+  {
+    "id": "M4",
+    "file": "lib/insecurity.ts",
+    "function": "sanitizeHtml",
+    "category": "Injection (XSS)",
+    "find": "export const sanitizeHtml = (html: string) => sanitizeHtmlLib(html)",
+    "replace": "export const sanitizeHtml = (html: string) => html",
+    "pass": 31,
+    "fail": 4,
+    "killed": true,
+    "status": "KILLED"
+  },
+  {
+    "id": "M5",
+    "file": "lib/insecurity.ts",
+    "function": "hash",
+    "category": "Cryptographic Failure",
+    "find": "export const hash = (data: string) => crypto.createHash('md5').update(data).digest('hex')",
+    "replace": "export const hash = (data: string) => data",
+    "pass": 34,
+    "fail": 1,
+    "killed": true,
+    "status": "KILLED"
+  },
+  {
+    "id": "M6",
+    "file": "lib/insecurity.ts",
+    "function": "verify",
+    "category": "Broken Authentication",
+    "find": "export const verify = (token: string) => token ? (jws.verify as ((token: string, secret: string) => boolean))(token, publicKey) : false",
+    "replace": "export const verify = (token: string) => !!token",
+    "pass": 35,
+    "fail": 0,
+    "killed": false,
+    "status": "SURVIVED"
+  }
+]
