@@ -1,6 +1,6 @@
 # Security-Focused Mutation Testing for Web Applications
 
-A research project applying mutation testing — a technique traditionally used to evaluate functional test suites — to the domain of **web application security**. Instead of checking whether an app *is* secure, this project checks whether an app's *own existing test suite* would actually catch a realistic security regression if one were introduced.
+A research project applying mutation testing - a technique traditionally used to evaluate functional test suites - to the domain of **web application security**. Instead of checking whether an app *is* secure, this project checks whether an app's *own existing test suite* would actually catch a realistic security regression if one were introduced.
 
 ## The Idea
 
@@ -108,7 +108,7 @@ See `research_paper.docx` §6 for the full discussion.
 
 ## Author
 
-[Your Name] — [Your Institution]
+Preethi Ramesh - Vellore Institute of Technology Chennai
 
 ## License
 
